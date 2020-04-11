@@ -1,4 +1,6 @@
-## TKO-äly website
+## TKO-äly
+
+This is the new work in progress job board for TKO-äly. It's build around the Strapi CMS and the Next.js React Framework. The content is formatted with Markdown and rendered by using react-markdown library. Apollo is used as the GraphQL client and styling is done by using tailwind CSS.
 
 ## How to develop
 

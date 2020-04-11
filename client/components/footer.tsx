@@ -1,5 +1,5 @@
 const Footer = () => (
-    <div className="w-full text-white text-center border-t bg-gray-800 p-6 pin-b">
+    <div className="w-full text-white text-center border-t bg-black p-6 pin-b">
         TKO-äly ry / TKTL
     </div>
 );

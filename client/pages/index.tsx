@@ -1,13 +1,46 @@
 import { NextPage } from 'next';
-import { Layout } from '../components';
+import { Layout, JobCard } from '../components';
 import withApollo from '../apollo/apollo';
+import { useQuery, gql } from '@apollo/client';
 
-const Index: NextPage = () => {
+const JOBS_QUERY = gql`
+    {
+        jobs {
+            id
+            title
+            description
+            company {
+                name
+            }
+        }
+    }
+`;
+
+interface Job {
+    id: string;
+    description: string;
+    title: string;
+    company: {
+        name: string;
+    };
+}
+
+const JobBoard: NextPage = () => {
+    const { data, error } = useQuery(JOBS_QUERY);
+    console.log('error: ', error);
+    console.log('data: ', data);
+
     return (
         <Layout title="TKO-äly">
-            <h1>Placeholder</h1>
+            <div className="">
+                {data?.jobs.map(({ id, ...rest }: Job) => (
+                    <div className="p-2">
+                        <JobCard key={id} {...rest} />
+                    </div>
+                )) || <h1>Loading</h1>}
+            </div>
         </Layout>
     );
 };
 
-export default withApollo(Index);
+export default withApollo(JobBoard);

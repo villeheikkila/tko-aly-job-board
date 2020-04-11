@@ -12,8 +12,9 @@ module.exports = {
         },
         colors: {
             transparent: 'transparent',
-            black: '#071108',
+            black: '#040404',
             white: '#FFFFFF',
+            gold: '#f3ea09',
             gray: {
                 100: '#f7fafc',
                 200: '#edf2f7',
