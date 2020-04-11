@@ -5,8 +5,9 @@ import { useQuery, gql } from '@apollo/client';
 
 const JOBS_QUERY = gql`
     {
-        jobBoards {
+        jobs {
             id
+            title
             description
             company {
                 name
@@ -18,6 +19,7 @@ const JOBS_QUERY = gql`
 interface Job {
     id: string;
     description: string;
+    title: string;
     company: {
         name: string;
     };
@@ -34,7 +36,7 @@ const JobBoard: NextPage = () => {
 
     return (
         <Layout title="TKO-äly">
-            {data.jobBoards.map(({ id, ...rest }: Job) => (
+            {data.jobs.map(({ id, ...rest }: Job) => (
                 <JobCard key={id} {...rest} />
             ))}
         </Layout>

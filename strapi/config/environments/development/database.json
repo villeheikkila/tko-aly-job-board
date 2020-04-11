@@ -4,12 +4,14 @@
     "default": {
       "connector": "bookshelf",
       "settings": {
-        "client": "sqlite",
-        "filename": ".tmp/data.db"
+        "client": "postgres",
+        "host": "${process.env.DATABASE_HOST || 'db'}",
+        "port": "${process.env.DATABASE_PORT || 5432}",
+        "database": "${process.env.DATABASE_NAME || 'strapi'}",
+        "username": "${process.env.POSTGRES_USER || ''}",
+        "password": "${process.env.POSTGRES_PASSWORD || ''}"
       },
-      "options": {
-        "useNullAsDefault": true
-      }
+      "options": {}
     }
   }
 }

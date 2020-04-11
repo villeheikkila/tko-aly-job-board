@@ -83,3 +83,6 @@ nbproject
 public/uploads/*
 !public/uploads/.gitkeep
 .vscode
+
+postgres
+.env

@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/job-boards": {
+    "/jobs": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Job"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Job-board"
+          "Job"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Job"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Job-board"
+          "Job"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewJob-board"
+                "$ref": "#/components/schemas/NewJob"
               }
             }
           }
         }
       }
     },
-    "/job-boards/count": {
+    "/jobs/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Job-board"
+          "Job"
         ],
         "parameters": []
       }
     },
-    "/job-boards/{id}": {
+    "/jobs/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Job"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Job-board"
+          "Job"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Job"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Job-board"
+          "Job"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewJob-board"
+                "$ref": "#/components/schemas/NewJob"
               }
             }
           }
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Job-board"
+          "Job"
         ],
         "parameters": [
           {
@@ -527,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Job-board": {
+      "Job": {
         "required": [
           "id"
         ],
@@ -536,15 +523,6 @@
             "type": "string"
           },
           "description": {
-            "type": "string"
-          },
-          "headers": {
-            "type": "string"
-          },
-          "Opens": {
-            "type": "string"
-          },
-          "deadline": {
             "type": "string"
           },
           "company": {
@@ -565,29 +543,30 @@
                 }
               }
             }
+          },
+          "title": {
+            "type": "string"
           }
         }
       },
-      "NewJob-board": {
+      "NewJob": {
         "properties": {
           "description": {
             "type": "string"
           },
-          "headers": {
-            "type": "string"
-          },
-          "Opens": {
-            "type": "string"
-          },
-          "deadline": {
-            "type": "string"
-          },
           "company": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           }
         }
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Job"
+    }
+  ]
 }

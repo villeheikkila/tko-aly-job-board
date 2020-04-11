@@ -1244,19 +1244,6 @@
                 }
               }
             }
-          },
-          "token": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "token": {
-                "type": "string"
-              }
-            }
           }
         }
       },
@@ -1293,9 +1280,6 @@
             "default": false
           },
           "role": {
-            "type": "string"
-          },
-          "token": {
             "type": "string"
           }
         }

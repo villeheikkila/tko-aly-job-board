@@ -1,5 +1,5 @@
 {
-  "name": "my-project",
+  "name": "strapi",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -12,7 +12,7 @@
   "devDependencies": {},
   "dependencies": {
     "knex": "<0.20.0",
-    "sqlite3": "latest",
+    "pg": "latest",
     "strapi": "3.0.0-beta.19.5",
     "strapi-admin": "3.0.0-beta.19.5",
     "strapi-connector-bookshelf": "3.0.0-beta.19.5",
@@ -29,7 +29,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "f403021c-4967-4c59-9998-713f3510998d"
+    "uuid": "e524f5c7-a480-4514-b8df-f6c067e5f3d5"
   },
   "engines": {
     "node": ">=10.0.0",

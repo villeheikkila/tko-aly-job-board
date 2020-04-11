@@ -1,9 +1,9 @@
 {
   "kind": "collectionType",
   "connection": "default",
-  "collectionName": "job_board",
+  "collectionName": "jobs",
   "info": {
-    "name": "job advertisement"
+    "name": "job"
   },
   "options": {
     "increments": true,
@@ -13,17 +13,11 @@
     "description": {
       "type": "richtext"
     },
-    "headers": {
-      "type": "string"
-    },
-    "Opens": {
-      "type": "date"
-    },
-    "deadline": {
-      "type": "date"
-    },
     "company": {
       "model": "company"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

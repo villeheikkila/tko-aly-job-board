@@ -6,7 +6,7 @@ export default withApollo(
         return new ApolloClient({
             uri: process.env.srapiURI,
             headers: {
-                Authorization: `Bearer ${process.env.strapiToken}`,
+                Authorization: `Bearer ${process.env.strapiAPIToken}`,
             },
             cache: new InMemoryCache().restore(initialState || {}),
         });

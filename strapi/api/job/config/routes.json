@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/tokens",
-      "handler": "token.find",
+      "path": "/jobs",
+      "handler": "job.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/tokens/count",
-      "handler": "token.count",
+      "path": "/jobs/count",
+      "handler": "job.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/tokens/:id",
-      "handler": "token.findOne",
+      "path": "/jobs/:id",
+      "handler": "job.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/tokens",
-      "handler": "token.create",
+      "path": "/jobs",
+      "handler": "job.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/tokens/:id",
-      "handler": "token.update",
+      "path": "/jobs/:id",
+      "handler": "job.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/tokens/:id",
-      "handler": "token.delete",
+      "path": "/jobs/:id",
+      "handler": "job.delete",
       "config": {
         "policies": []
       }

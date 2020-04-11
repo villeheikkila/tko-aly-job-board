@@ -1,7 +1,7 @@
 require('dotenv').config();
 module.exports = {
     env: {
-        strapiToken: process.env.STRAPI_TOKEN,
+        strapiAPIToken: process.env.STRAPI_API_TOKEN,
         srapiURI: process.env.STRAPI_URI,
     },
 };
