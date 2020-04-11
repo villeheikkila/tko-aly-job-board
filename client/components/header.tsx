@@ -5,7 +5,7 @@ const Header = () => (
         <div className="flex items-center flex-shrink-0 text-white mr-6">
             <Logo className="w-24" />
             <span className="font-semibold text-xl tracking-tight">
-                Työpaikat
+                Job Board
             </span>
         </div>
     </nav>

@@ -1,7 +1,6 @@
 import { Layout } from '../../components';
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
-import { AnimateSharedLayout, AnimatePresence, motion } from 'framer-motion';
 
 const JOBS_ID_QUERY = gql`
     query JobIdQuery($id: ID!) {

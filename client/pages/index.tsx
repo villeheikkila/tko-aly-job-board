@@ -10,8 +10,14 @@ const JOBS_QUERY = gql`
             title
             description
             synopsis
+            tags {
+                tag
+            }
             company {
                 name
+                logo {
+                    url
+                }
             }
         }
     }
@@ -22,29 +28,26 @@ interface Job {
     description: string;
     synopsis: string;
     title: string;
+    tags: {
+        tag: string;
+    };
     company: {
         name: string;
     };
 }
 
 const JobBoard: NextPage = () => {
-    const { data, error } = useQuery(JOBS_QUERY);
-    console.log('error: ', error);
-    console.log('data: ', data);
+    const { data } = useQuery(JOBS_QUERY);
 
     return (
         <Layout title="TKO-äly">
-            <AnimateSharedLayout type="crossfade">
-                <AnimatePresence>
-                    <div className="">
-                        {data?.jobs.map(({ id, ...rest }: Job) => (
-                            <div className="p-2">
-                                <JobCard key={id} {...rest} />
-                            </div>
-                        )) || <h1>Loading</h1>}
+            <div className="flex flex-col">
+                {data?.jobs.map(({ id, ...rest }: Job) => (
+                    <div className="p-2">
+                        <JobCard key={id} {...rest} />
                     </div>
-                </AnimatePresence>
-            </AnimateSharedLayout>
+                )) || null}
+            </div>
         </Layout>
     );
 };

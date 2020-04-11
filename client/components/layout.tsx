@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ children, title = 'TKO-äly' }) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div className="min-h-screen flex flex-col font-sans bg-night">
+            <div className="min-h-screen flex flex-col font-sans bg-night overflow-visible">
                 <Header />
                 <div id="content" className="flex-1 mx-auto p-8">
                     {children}

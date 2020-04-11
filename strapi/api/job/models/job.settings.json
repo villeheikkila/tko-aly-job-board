@@ -21,6 +21,9 @@
     },
     "synopsis": {
       "type": "text"
+    },
+    "tags": {
+      "collection": "tags"
     }
   }
 }

@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/jobs": {
+    "/tags": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the tags's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Job"
+                    "$ref": "#/components/schemas/Tags"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Job"
+          "Tags"
         ],
         "parameters": [
           {
@@ -194,14 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new tags record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Job"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Job"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -247,20 +247,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewJob"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
         }
       }
     },
-    "/jobs/count": {
+    "/tags/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of tags documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -306,22 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Job"
+          "Tags"
         ],
         "parameters": []
       }
     },
-    "/jobs/{id}": {
+    "/tags/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one tags record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Job"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Job"
+          "Tags"
         ],
         "parameters": [
           {
@@ -376,14 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single tags record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve tags document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Job"
+                  "$ref": "#/components/schemas/Tags"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Job"
+          "Tags"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewJob"
+                "$ref": "#/components/schemas/NewTags"
               }
             }
           }
@@ -449,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single tags record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single tags based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Job"
+          "Tags"
         ],
         "parameters": [
           {
@@ -514,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Job": {
+      "Tags": {
         "required": [
           "id"
         ],
@@ -522,64 +522,14 @@
           "id": {
             "type": "string"
           },
-          "description": {
+          "tag": {
             "type": "string"
-          },
-          "company": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "logo": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "title": {
-            "type": "string"
-          },
-          "synopsis": {
-            "type": "string"
-          },
-          "tags": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "tag": {
-                "type": "string"
-              }
-            }
           }
         }
       },
-      "NewJob": {
+      "NewTags": {
         "properties": {
-          "description": {
-            "type": "string"
-          },
-          "company": {
-            "type": "string"
-          },
-          "title": {
-            "type": "string"
-          },
-          "synopsis": {
-            "type": "string"
-          },
-          "tags": {
+          "tag": {
             "type": "string"
           }
         }
@@ -588,7 +538,7 @@
   },
   "tags": [
     {
-      "name": "Job"
+      "name": "Tags"
     }
   ]
 }
