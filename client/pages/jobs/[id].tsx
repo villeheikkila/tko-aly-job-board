@@ -18,7 +18,7 @@ const JOBS_ID_QUERY = gql`
 const Job = () => {
     const router = useRouter();
     const { id } = router.query;
-    const { data, error } = useQuery(JOBS_ID_QUERY, { variables: { id } });
+    const { data } = useQuery(JOBS_ID_QUERY, { variables: { id } });
 
     return (
         <Layout>

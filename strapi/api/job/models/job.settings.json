@@ -24,6 +24,9 @@
     },
     "tags": {
       "collection": "tags"
+    },
+    "deadline": {
+      "type": "datetime"
     }
   }
 }

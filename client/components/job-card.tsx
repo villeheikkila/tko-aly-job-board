@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 const ReactMarkdown = require('react-markdown');
 import { motion } from 'framer-motion';
+import { format } from 'date-fns';
+
 interface Company {
     name: string;
     logo: {
         url: string;
-    };
+    }[];
 }
 
 interface Props {
@@ -14,67 +16,49 @@ interface Props {
     synopsis: string;
     description: string;
     tags: any;
+    deadline: string;
 }
 
 const Content: React.FC<{ description: string }> = ({ description }) => {
     return (
-        <motion.div
-            className="z-50"
-            initial="collapsed"
-            animate="open"
-            variants={{
-                open: { opacity: 1, height: 'auto' },
-                collapsed: { height: 0 },
-            }}
-            transition={{ duration: 1, ease: [0.063, 0.62, 0.23, 0.98] }}
-        >
+        <div className="z-50">
             <ReactMarkdown className="markdown">{description}</ReactMarkdown>
-        </motion.div>
+        </div>
     );
 };
 
 const JobCard: React.FC<Props> = ({
     company,
-
     description,
     synopsis,
     tags,
+    deadline,
 }): JSX.Element => {
-    console.log('company: ', company);
     const [isOpen, setIsOpen] = useState(false);
+    const formattedDateTime = format(deadline, 'MM/DD/YYYY');
 
     return (
-        <motion.div
-            className="max-w-5xl w-5xl rounded overflow-hidden shadow-lg p-6  bg-white"
-            initial="collapsed"
-            animate="open"
-            variants={{
-                open: { opacity: 1, height: 'auto' },
-                collapsed: { height: 0 },
-            }}
-            transition={{ duration: 1, ease: [0.063, 0.62, 0.23, 0.98] }}
+        <div
+            className="max-w-4xl px-10 my-4 py-6 bg-white rounded-lg shadow-md"
             onClick={() => setIsOpen(!isOpen)}
         >
-            <div className="flex justify-between">
-                <div className="flex content-center">
-                    <h3 className="font-bold text-xl pb-3 mr-4">
-                        {company?.name}
-                    </h3>
-                    <div>
-                        {tags &&
-                            tags.map(({ tag }) => (
-                                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                                    {tag}
-                                </span>
-                            ))}
-                    </div>
-                </div>
-                {company?.logo[0] && (
+            {company?.logo[0] && (
+                <div className="flex justify-center md:justify-end -mt-12 ">
                     <img
-                        className="w-32"
+                        className="w-26 h-20 object-cover rounded-t-lg border-2 bg-white border-transparent"
                         src={`http://localhost:1337${company?.logo[0]?.url}`}
                     />
-                )}
+                </div>
+            )}
+
+            <div className="flex justify-between">
+                <div className="flex content-center">
+                    <h3 className="text-2xl text-gray-700 font-bold hover:text-gray-600 mr-4">
+                        {company?.name}
+                    </h3>
+                </div>
+
+                <h1>Application deadline {formattedDateTime}</h1>
             </div>
 
             {isOpen ? (
@@ -82,7 +66,16 @@ const JobCard: React.FC<Props> = ({
             ) : (
                 <motion.span className="mb-2">{synopsis}</motion.span>
             )}
-        </motion.div>
+
+            <div>
+                {tags &&
+                    tags.map(({ tag }: { tag: string }) => (
+                        <span className="px-3 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded mr-2">
+                            {tag}
+                        </span>
+                    ))}
+            </div>
+        </div>
     );
 };
 

@@ -562,6 +562,9 @@
                 "type": "string"
               }
             }
+          },
+          "deadline": {
+            "type": "datetime"
           }
         }
       },
@@ -581,6 +584,9 @@
           },
           "tags": {
             "type": "string"
+          },
+          "deadline": {
+            "type": "datetime"
           }
         }
       }
